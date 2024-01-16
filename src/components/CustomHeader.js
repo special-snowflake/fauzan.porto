@@ -25,8 +25,9 @@ const CustomHeader = () => {
 
 const CustomLink = ({ href, desc }) => {
   const pathName = usePathname();
+  const wrapperStyle = pathName === href ? 'font' : '';
   return (
-    <div className={pathName === href && 'font-bold'}>
+    <div className={wrapperStyle}>
       <Link href={href}> {desc} </Link>
     </div>
   );
