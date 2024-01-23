@@ -1,0 +1,55 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "projectName": "Personal Portfolio",
+            "imagePath": "",
+            "desc": "This is the web application you're looking at right now.",
+            "link": {
+                "url": "https://github.com/special-snowflake/fauzan.porto",
+                "label": "Portfolio"
+            },
+            "tag": [
+                "next",
+                "git",
+                "frontend",
+                "tailwind"
+            ]
+        },
+        {
+            "id": 2,
+            "projectName": "Juragan Beku",
+            "imagePath": "",
+            "desc": "Juraganbeku is an application for B2B that helps small and medium enterprises facilitate the supply of goods.",
+            "link": {
+                "url": "https://juraganbeku.tokopandai.id/",
+                "label": "Juragan Beku"
+            },
+            "tag": [
+                "express",
+                "redis",
+                "ecommerce",
+                "git",
+                "backend",
+                "scheduler"
+            ]
+        },
+        {
+            "id": 3,
+            "projectName": "ZWallet",
+            "imagePath": "",
+            "desc": "Zwallet is a web app based app, use to send and top up money. This project is developed using framework Next Js. In this project I build front end by myself in a week.",
+            "link": {
+                "url": "https://github.com/special-snowflake/zwallet-nextjs",
+                "label": "ZWallet"
+            },
+            "tag": [
+                "next",
+                "payment",
+                "react",
+                "git",
+                "frontend"
+            ]
+        }
+    ]
+}
