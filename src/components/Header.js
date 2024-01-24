@@ -1,15 +1,34 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import PropTypes from 'prop-types';
 
 const CustomHeader = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  const transparency = Math.min(1, scrollPosition / 50);
+
+  const headerStyle = {
+    opacity: 1 - transparency
+  };
   return (
-    <header className="h-10 w-2/4 fixed top-0 right-0 p-5">
-      <div className="flex-1 text-white flex items-center justify-start w-100">
-        <nav className="">
-          <ul className="flex space-x-2">
+    <header className="h-10 w-2/4 fixed top-0 right-0 p-5" style={headerStyle}>
+      <div className="flex-1 text-white flex items-center justify-end w-100">
+        <nav>
+          <ul className="flex space-x-3">
             <li>
               <CustomLink href="/" desc="Home" />
             </li>
@@ -28,12 +47,15 @@ const CustomHeader = () => {
 
 const CustomLink = ({ href, desc }) => {
   const pathName = usePathname();
-  const wrapperStyle = pathName === href ? 'font-bold	' : '';
+  const wrapperStyle = pathName === href ? 'text-white	' : 'text-gray-400';
   return (
-    <div
-      className={`${wrapperStyle} py-1 px-2 bg-transparent cursor-pointer duration-200 hover:bg-[#a1a1a1] rounded`}
-    >
-      <Link href={href}> {desc} </Link>
+    <div>
+      <Link
+        href={href}
+        className={`${wrapperStyle} font-semibold py-1 px-2 bg-transparent cursor-pointer duration-200 hover:text-white`}
+      >
+        {desc}
+      </Link>
     </div>
   );
 };

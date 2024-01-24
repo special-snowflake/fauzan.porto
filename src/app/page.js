@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import React from 'react';
 import Header from '@/components/Header';
+import Layout from './layout';
 import { mapper } from '@/helpers/mapper';
 const data = mapper('dashboard');
 
 const Home = () => {
   return (
-    <>
+    <Layout>
       <Header />
       <div className="min-h-screen flex">
         <div
@@ -29,7 +30,7 @@ const Home = () => {
           <p className="text-2xl">{data.desc}</p>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 

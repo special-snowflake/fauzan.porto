@@ -4,13 +4,13 @@ import './globals.css';
 const inter = Open_Sans({ subsets: ['latin'], weight: '400' });
 
 export const metadata = {
-  title: 'Ahmad Fauzan - Portfolio',
-  description: 'Personal Portofolio'
+  title: 'Home',
+  description: 'Personal Portfolio'
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="id">
       <body className={inter.className}>{children}</body>
     </html>
   );
