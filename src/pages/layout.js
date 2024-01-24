@@ -24,7 +24,6 @@ export default function Layout({ children }) {
       <Head>
         <html lang="id" />
         <title>{title}</title>
-        <desc>Portfolio</desc>
       </Head>
       {children}
     </div>
