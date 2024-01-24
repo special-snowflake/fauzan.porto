@@ -24,7 +24,6 @@ export default function Layout({ children }) {
   return (
     <div className={openSans.className}>
       <Head>
-        <html lang="id" />
         <title>{title}</title>
       </Head>
       {children}
