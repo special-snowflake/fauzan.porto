@@ -1,9 +1,14 @@
 {
+    "dashboard": {
+        "backgroundLeft": "/assets/images/bg-pattern-white.webp",
+        "imageLeft": "/assets/images/photo.jpeg",
+        "desc": "Welcome to my portfolio."
+    },
     "projects": [
         {
             "id": 1,
             "projectName": "Personal Portfolio",
-            "imagePath": "",
+            "imagePath": "/assets/images/projects/portfolio.png",
             "desc": "This is the web application you're looking at right now.",
             "link": {
                 "url": "https://github.com/special-snowflake/fauzan.porto",
@@ -19,7 +24,7 @@
         {
             "id": 2,
             "projectName": "Juragan Beku",
-            "imagePath": "",
+            "imagePath": "/assets/images/projects/juraganbeku.png",
             "desc": "Juraganbeku is an application for B2B that helps small and medium enterprises facilitate the supply of goods.",
             "link": {
                 "url": "https://juraganbeku.tokopandai.id/",
@@ -50,6 +55,23 @@
                 "git",
                 "frontend"
             ]
+        }
+    ],
+    "contacts": [
+        {
+            "label": "LinkedIn",
+            "url": "",
+            "icon": ""
+        },
+        {
+            "label": "Github",
+            "url": "",
+            "icon": ""
+        },
+        {
+            "label": "Email",
+            "url": "mailto:ahmadfauzan.dev@gmail.com",
+            "icon": ""
         }
     ]
 }
