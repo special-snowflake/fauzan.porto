@@ -8,18 +8,19 @@ const ProjectCard = ({ project, isOdd }) => {
 
   return (
     <div
-      className={`flex items-center justify-center bg-gray-950 text-white p-4 my-3 ${
+      className={`flex items-center justify-center bg-[#0a0a0a] text-white p-5 my-3 ${
         imagePosition === 'left' ? 'flex-row' : 'flex-row-reverse'
-      }`}
+      } rounded`}
     >
-      {project.imagePath && (
-        <Image
-          src={project.imagePath}
-          height={100}
-          width={100}
-          alt="personal-photo"
-        />
-      )}
+      <Image
+        src={project.imagePath}
+        height={100}
+        width={100}
+        alt="personal-photo"
+        onError={(e) => {
+          e.target.src = '/assets/images/not-found.webp';
+        }}
+      />
       <div className="w-1/2 md:w-2/3 max-w-lg mx-4">
         <h2 className="text-2xl font-bold">{project.projectName}</h2>
         <p className="my-2">{project.desc}</p>
@@ -35,7 +36,7 @@ const ProjectCard = ({ project, isOdd }) => {
           {project.tag.map((tag) => (
             <span
               key={tag}
-              className="mr-2 bg-gray-800 text-white py-1 px-2 rounded"
+              className="mr-2 bg-gray-800 text-white py-1 px-3 rounded"
             >
               {tag}
             </span>

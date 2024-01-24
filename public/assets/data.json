@@ -23,12 +23,12 @@
         },
         {
             "id": 2,
-            "projectName": "Juragan Beku",
+            "projectName": "JuraganBeku",
             "imagePath": "/assets/images/projects/juraganbeku.png",
-            "desc": "Juraganbeku is an application for B2B that helps small and medium enterprises facilitate the supply of goods.",
+            "desc": "JuraganBeku is an application for B2B that helps small and medium enterprises facilitate the supply of goods.",
             "link": {
                 "url": "https://juraganbeku.tokopandai.id/",
-                "label": "Juragan Beku"
+                "label": "JuraganBeku"
             },
             "tag": [
                 "express",

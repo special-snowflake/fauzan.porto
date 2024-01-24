@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import Header from '@/components/CustomHeader';
+import Header from '@/components/Header';
 import { mapper } from '@/helpers/mapper';
 const data = mapper('dashboard');
 
@@ -25,7 +25,7 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className="flex-1 bg-[#444444] text-white flex items-center justify-center pt-10">
+        <div className="flex-1 bg-black text-white flex items-center justify-center pt-10">
           <p className="text-2xl">{data.desc}</p>
         </div>
       </div>
