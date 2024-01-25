@@ -32,11 +32,11 @@ const ProjectCard = ({ project, isOdd }) => {
         >
           {project.link.label}
         </a>
-        <div className="my-3">
+        <div className="my-3 flex flex-wrap">
           {project.tag.map((tag) => (
             <span
               key={tag}
-              className="mr-2 bg-gray-800 hover:bg-gray-800/[0.7] text-white py-1 px-3 rounded"
+              className="mr-2 mb-2 bg-gray-800 hover:bg-gray-800/[0.7] text-white py-1 px-3 rounded"
             >
               {tag}
             </span>

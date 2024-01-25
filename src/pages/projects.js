@@ -5,9 +5,8 @@ import Footer from '@/components/Footer';
 import { mapper } from '@/helpers/mapper';
 import Layout from './layout';
 import '../app/globals.css';
-const projects = mapper('projects');
 
-const ProjectsPage = () => {
+const ProjectsPage = ({ projects }) => {
   return (
     <Layout>
       <Header />
@@ -32,5 +31,15 @@ const ProjectsPage = () => {
     </Layout>
   );
 };
+
+export async function getStaticProps() {
+  const projects = mapper('projects');
+
+  return {
+    props: {
+      projects
+    }
+  };
+}
 
 export default ProjectsPage;
