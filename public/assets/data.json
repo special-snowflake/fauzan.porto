@@ -63,18 +63,18 @@
     "contacts": [
         {
             "label": "LinkedIn",
-            "url": "",
-            "icon": ""
+            "url": "https://www.linkedin.com/in/ah-fauzan",
+            "type": "linkedin"
         },
         {
             "label": "Github",
-            "url": "",
-            "icon": ""
+            "url": "https://github.com/special-snowflake",
+            "type": "github"
         },
         {
             "label": "Email",
             "url": "mailto:ahmadfauzan.dev@gmail.com",
-            "icon": ""
+            "type": "email"
         }
     ]
 }
