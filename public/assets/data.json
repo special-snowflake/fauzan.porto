@@ -25,6 +25,25 @@
             },
             {
                 "id": 2,
+                "projectName": "Unified MyEnterprise",
+                "imagePath": "/assets/images/projects/unified-myenterprise.webp",
+                "desc": "Unified MyEnterprise is a comprehensive web app for Telkomsel that streamlines enterprise sales processes, user and opportunity management, lead tracking, order processing, and agreement handling, all in one platform.",
+                "link": {
+                    "url": "https://internal.myenterprise.telkomsel.com",
+                    "label": "Unified MyEnterprise"
+                },
+                "tag": [
+                    "happi js",
+                    "react",
+                    "redis",
+                    "github",
+                    "backend",
+                    "frontend",
+                    "scheduler"
+                ]
+            },
+            {
+                "id": 3,
                 "projectName": "JuraganBeku",
                 "imagePath": "/assets/images/projects/juraganbeku.webp",
                 "desc": "JuraganBeku is an application for B2B that helps small and medium enterprises facilitate the supply of goods.",
@@ -42,7 +61,7 @@
                 ]
             },
             {
-                "id": 3,
+                "id": 4,
                 "projectName": "ZWallet",
                 "imagePath": "/assets/images/projects/zwallet.webp",
                 "desc": "Zwallet is a web app based app, use to send and top up money. This project is developed using framework Next Js. In this project I build front end by myself in a week.",
