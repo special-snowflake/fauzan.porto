@@ -1,44 +1,108 @@
 {
+    "metadata": {
+        "title": "Ahmad Fauzan | Full-Stack Developer",
+        "description": "Personal portfolio of Ahmad Fauzan, a full-stack developer specializing in React, Next.js, and Node.js",
+        "language": "en",
+        "author": "Ahmad Fauzan",
+        "keywords": "developer, portfolio, react, next.js, full-stack"
+    },
+    "header": {
+        "logo": "AF",
+        "navigation": [
+            {"href": "/", "label": "Home"},
+            {"href": "/projects", "label": "Projects"},
+            {"href": "/contacts", "label": "Contacts"}
+        ]
+    },
+    "footer": {
+        "aboutHeading": "About",
+        "aboutDescription": "Full-stack developer creating modern web experiences with React, Next.js, and Node.js.",
+        "linksHeading": "Quick Links",
+        "quickLinks": [
+            {"href": "/", "label": "Home"},
+            {"href": "/projects", "label": "Projects"},
+            {"href": "/contacts", "label": "Contact"}
+        ],
+        "sourceCodeHeading": "Source Code",
+        "sourceCodeLabel": "View on GitHub",
+        "sourceCodeUrl": "https://github.com/special-snowflake/fauzan.porto",
+        "copyrightText": "Created by Ahmad Fauzan. All rights reserved."
+    },
     "dashboard": {
         "backgroundLeft": "/assets/images/bg-pattern-white.webp",
-        "imageLeft": "/assets/images/photo.jpeg",
-        "desc": "Welcome to my portfolio."
+        "imageLeft": "/assets/images/main.jpeg",
+        "welcomeBadge": "👋 Welcome to my portfolio",
+        "name": "Ahmad Fauzan",
+        "headline": "I'm Ahmad Fauzan",
+        "desc": "Welcome to my portfolio.",
+        "extendedBio": "Full-stack developer passionate about creating modern, responsive web applications. Experienced with React, Next.js, Node.js, and building scalable solutions.",
+        "stats": [
+            {"value": "4+", "label": "Projects"},
+            {"value": "4+", "label": "Years Exp"}
+        ],
+        "cta": [
+            {"href": "/projects", "label": "View My Projects", "variant": "primary"},
+            {"href": "/contacts", "label": "Get In Touch", "variant": "secondary"}
+        ]
     },
     "projects": {
-        "desc": "These are a few of my projects over the last few years.",
+        "eyebrow": "MY_WORK.exe",
+        "heading": "Featured Projects",
+        "desc": "A selection of projects I've worked on over the past few years.",
+        "projectCountText": "projects loaded",
+        "cta": {
+            "heading": "Interested in working together?",
+            "description": "I'm always open to discussing new projects and creative ideas.",
+            "buttonLabel": "Get in Touch",
+            "buttonHref": "/contacts"
+        },
         "list": [
+            {
+                "id": 0,
+                "imagePath": "/assets/images/projects/money-tracker.webp",
+                "projectName": "Money Tracker",
+                "desc": "A personal project built with Next.js and TypeScript, powered by DeepSeek AI. It helps users track financial transactions — data can be entered manually, with AI assistance for parsing and categorization.",
+                "link": {
+                    "url": "https://money-tracker-piwpaw.vercel.app",
+                    "label": "Money Tracker"
+                },
+                "tag": [
+                    "next.js",
+                    "typescript",
+                    "ai",
+                    "deepseek"
+                ]
+            },
             {
                 "id": 1,
                 "projectName": "Personal Portfolio",
-                "imagePath": "/assets/images/projects/portfolio.webp",
-                "desc": "This is the web application you're looking at right now.",
+                "imagePath": "/assets/images/projects/portfolio.png",
+                "desc": "The web application you're browsing right now.",
                 "link": {
                     "url": "https://github.com/special-snowflake/fauzan.porto",
                     "label": "Portfolio"
                 },
                 "tag": [
-                    "next",
-                    "git",
+                    "next.js",
+                    "tailwind",
                     "frontend",
-                    "tailwind"
+                    "open source"
                 ]
             },
             {
                 "id": 2,
                 "projectName": "Unified MyEnterprise",
                 "imagePath": "/assets/images/projects/unified-myenterprise.webp",
-                "desc": "Unified MyEnterprise is a comprehensive web app for Telkomsel that streamlines enterprise sales processes, user and opportunity management, lead tracking, order processing, and agreement handling, all in one platform.",
+                "desc": "A comprehensive enterprise platform for Telkomsel that centralises sales processes, including user and opportunity management, lead tracking, order processing, and agreement handling.",
                 "link": {
                     "url": "https://internal.myenterprise.telkomsel.com",
                     "label": "Unified MyEnterprise"
                 },
                 "tag": [
-                    "happi js",
                     "react",
+                    "happi.js",
                     "redis",
-                    "github",
-                    "backend",
-                    "frontend",
+                    "full stack",
                     "scheduler"
                 ]
             },
@@ -46,16 +110,15 @@
                 "id": 3,
                 "projectName": "JuraganBeku",
                 "imagePath": "/assets/images/projects/juraganbeku.webp",
-                "desc": "JuraganBeku is an application for B2B that helps small and medium enterprises facilitate the supply of goods.",
+                "desc": "A B2B platform designed to help small and medium enterprises streamline the procurement and supply of goods.",
                 "link": {
                     "url": "https://juraganbeku.tokopandai.id/",
                     "label": "JuraganBeku"
                 },
                 "tag": [
-                    "express",
+                    "express.js",
                     "redis",
-                    "ecommerce",
-                    "git",
+                    "e-commerce",
                     "backend",
                     "scheduler"
                 ]
@@ -64,20 +127,27 @@
                 "id": 4,
                 "projectName": "ZWallet",
                 "imagePath": "/assets/images/projects/zwallet.webp",
-                "desc": "Zwallet is a web app based app, use to send and top up money. This project is developed using framework Next Js. In this project I build front end by myself in a week.",
+                "desc": "A web app for sending and topping up money, built with Next.js. I independently developed the entire frontend within a week.",
                 "link": {
                     "url": "https://zwallet-nextgen.vercel.app/",
                     "label": "ZWallet Dashboard"
                 },
                 "tag": [
-                    "next",
-                    "payment",
+                    "next.js",
                     "react",
-                    "git",
+                    "payments",
                     "frontend"
                 ]
             }
         ]
+    },
+    "contactsPage": {
+        "badge": "💬 Let's Connect",
+        "heading": "Get in Touch",
+        "description": "I'm always open to new opportunities and interesting projects. Feel free to reach out!",
+        "emailHeading": "Prefer Email?",
+        "emailDescription": "Send me a message directly and I'll get back to you as soon as possible.",
+        "emailButtonLabel": "Send Email"
     },
     "contacts": [
         {
