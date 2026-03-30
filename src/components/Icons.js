@@ -26,8 +26,8 @@ const Icon = ({ type }) => {
     <img
       src={getIconPath(type)}
       alt={type}
-      className="w-6 h-6 mr-2"
-      style={{ fill: 'white' }}
+      className="w-5 h-5"
+      style={{ filter: 'brightness(0) saturate(100%) invert(98%)' }}
     />
   );
 };

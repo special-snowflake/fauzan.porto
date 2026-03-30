@@ -1,46 +1,68 @@
 'use client';
 import PropTypes from 'prop-types';
-import '../app/globals.css';
 import Image from 'next/image';
 
-const ProjectCard = ({ project, isOdd }) => {
-  const imagePosition = isOdd ? 'left' : 'right';
+const ProjectCard = ({ project, index = 0 }) => {
+  const isReversed = index % 2 !== 0;
+  const cardNum = String(index + 1).padStart(2, '0');
 
   return (
-    <div
-      className={`flex items-center justify-around bg-[#0a0a0a] text-white p-5 my-3 ${
-        imagePosition === 'left' ? 'flex-row' : 'flex-row-reverse'
-      } rounded border border-[#fff]/[0.4] hover:border-[#fff] cursor-pointer duration-200`}
-    >
-      <Image
-        src={project.imagePath}
-        height={150}
-        width={150}
-        alt="personal-photo"
-        onError={(e) => {
-          e.target.src = '/assets/images/not-found.webp';
-        }}
-      />
-      <div className="w-9/12 md:w-2/3 max-w-lg mx-4">
-        <h2 className="text-2xl font-bold">{project.projectName}</h2>
-        <p className="my-2 text-balance">{project.desc}</p>
-        <a
-          href={project.link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 my-2"
-        >
-          {project.link.label}
-        </a>
-        <div className="my-3 flex flex-wrap">
-          {project.tag.map((tag) => (
-            <span
-              key={tag}
-              className="mr-2 mb-2 bg-gray-800 hover:bg-gray-800/[0.7] text-white py-1 px-3 rounded"
+    <div className="project-card">
+      <div className="card-accent" />
+
+      <div className={`card-inner ${isReversed ? 'card-inner--reversed' : ''}`}>
+        {/* Image */}
+        <div className="card-img">
+          <Image
+            src={project.imagePath}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            alt={project.projectName}
+            className="card-img__photo"
+            onError={(e) => {
+              e.target.src = '/assets/images/not-found.webp';
+            }}
+          />
+          <div className="card-img__overlay" />
+          <span className="card-index">{cardNum}</span>
+        </div>
+
+        {/* Content */}
+        <div className="card-content">
+          <h3 className="card-title">{project.projectName}</h3>
+
+          <p className="card-desc">{project.desc}</p>
+
+          <div className="card-tags">
+            {project.tag.map((tag) => (
+              <span key={tag} className="tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <a
+            href={project.link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card-cta"
+          >
+            <span>{project.link.label}</span>
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              {tag}
-            </span>
-          ))}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
@@ -49,7 +71,7 @@ const ProjectCard = ({ project, isOdd }) => {
 
 ProjectCard.propTypes = {
   project: PropTypes.any,
-  isOdd: PropTypes.bool
+  index: PropTypes.number,
 };
 
 export default ProjectCard;
