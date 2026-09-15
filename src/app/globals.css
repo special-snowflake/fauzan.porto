@@ -23,6 +23,37 @@
 html { scroll-behavior: smooth; }
 *, *::before, *::after { box-sizing: border-box; }
 
+.page-transition-shell {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.interactive-grid {
+  --grid-x: 50%;
+  --grid-y: 42%;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.42;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at var(--grid-x) var(--grid-y), rgba(34, 211, 238, 0.14), transparent 28rem);
+  background-size: 64px 64px, 64px 64px, 100% 100%;
+  background-position: 0 0, 0 0, 0 0;
+  mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.72) 46%, transparent 92%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.72) 46%, transparent 92%);
+  transform: perspective(900px) rotateX(12deg) scale(1.08);
+  transform-origin: center top;
+  will-change: background-image;
+}
+
+.interactive-grid + div {
+  position: relative;
+  z-index: 1;
+}
+
 body {
   font-family: 'Syne', sans-serif;
   color: var(--text);
@@ -45,6 +76,29 @@ body::-webkit-scrollbar-thumb:hover {
 @media (max-width: 768px) {
   body { padding-right: 0.25em; }
   body::-webkit-scrollbar { width: 0.4em; }
+
+  .interactive-grid {
+    opacity: 0.22;
+    background-size: 44px 44px, 44px 44px, 100% 100%;
+    transform: perspective(900px) rotateX(8deg) scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .interactive-grid {
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* ── TYPOGRAPHY ── */

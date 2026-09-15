@@ -9,9 +9,18 @@
     "header": {
         "logo": "AF",
         "navigation": [
-            {"href": "/", "label": "Home"},
-            {"href": "/projects", "label": "Projects"},
-            {"href": "/contacts", "label": "Contacts"}
+            {
+                "href": "/",
+                "label": "Home"
+            },
+            {
+                "href": "/projects",
+                "label": "Projects"
+            },
+            {
+                "href": "/contacts",
+                "label": "Contacts"
+            }
         ]
     },
     "footer": {
@@ -19,9 +28,18 @@
         "aboutDescription": "Full-stack developer creating modern web experiences with React, Next.js, and Node.js.",
         "linksHeading": "Quick Links",
         "quickLinks": [
-            {"href": "/", "label": "Home"},
-            {"href": "/projects", "label": "Projects"},
-            {"href": "/contacts", "label": "Contact"}
+            {
+                "href": "/",
+                "label": "Home"
+            },
+            {
+                "href": "/projects",
+                "label": "Projects"
+            },
+            {
+                "href": "/contacts",
+                "label": "Contact"
+            }
         ],
         "sourceCodeHeading": "Source Code",
         "sourceCodeLabel": "View on GitHub",
@@ -37,12 +55,26 @@
         "desc": "Welcome to my portfolio.",
         "extendedBio": "Full-stack developer passionate about creating modern, responsive web applications. Experienced with React, Next.js, Node.js, and building scalable solutions.",
         "stats": [
-            {"value": "4+", "label": "Projects"},
-            {"value": "4+", "label": "Years Exp"}
+            {
+                "value": "6+",
+                "label": "Projects"
+            },
+            {
+                "value": "4+",
+                "label": "Years Exp"
+            }
         ],
         "cta": [
-            {"href": "/projects", "label": "View My Projects", "variant": "primary"},
-            {"href": "/contacts", "label": "Get In Touch", "variant": "secondary"}
+            {
+                "href": "/projects",
+                "label": "View My Projects",
+                "variant": "primary"
+            },
+            {
+                "href": "/contacts",
+                "label": "Get In Touch",
+                "variant": "secondary"
+            }
         ]
     },
     "projects": {
@@ -59,34 +91,35 @@
         "list": [
             {
                 "id": 0,
-                "imagePath": "/assets/images/projects/money-tracker.webp",
-                "projectName": "Money Tracker",
-                "desc": "A personal project built with Next.js and TypeScript, powered by DeepSeek AI. It helps users track financial transactions — data can be entered manually, with AI assistance for parsing and categorization.",
+                "projectName": "ZWallet",
+                "imagePath": "/assets/images/projects/zwallet.webp",
+                "desc": "A web app for sending and topping up money, built with Next.js. I independently developed the entire frontend within a week.",
                 "link": {
-                    "url": "https://money-tracker-piwpaw.vercel.app",
-                    "label": "Money Tracker"
+                    "url": "https://zwallet-nextgen.vercel.app/",
+                    "label": "ZWallet Dashboard"
                 },
                 "tag": [
                     "next.js",
-                    "typescript",
-                    "ai",
-                    "deepseek"
+                    "react",
+                    "payments",
+                    "frontend"
                 ]
             },
             {
                 "id": 1,
-                "projectName": "Personal Portfolio",
-                "imagePath": "/assets/images/projects/portfolio.png",
-                "desc": "The web application you're browsing right now.",
+                "projectName": "JuraganBeku",
+                "imagePath": "/assets/images/projects/juraganbeku.webp",
+                "desc": "A B2B platform designed to help small and medium enterprises streamline the procurement and supply of goods.",
                 "link": {
-                    "url": "https://github.com/special-snowflake/fauzan.porto",
-                    "label": "Portfolio"
+                    "url": "https://juraganbeku.tokopandai.id/",
+                    "label": "JuraganBeku"
                 },
                 "tag": [
-                    "next.js",
-                    "tailwind",
-                    "frontend",
-                    "open source"
+                    "express.js",
+                    "redis",
+                    "e-commerce",
+                    "backend",
+                    "scheduler"
                 ]
             },
             {
@@ -108,35 +141,50 @@
             },
             {
                 "id": 3,
-                "projectName": "JuraganBeku",
-                "imagePath": "/assets/images/projects/juraganbeku.webp",
-                "desc": "A B2B platform designed to help small and medium enterprises streamline the procurement and supply of goods.",
+                "projectName": "Personal Portfolio",
+                "imagePath": "/assets/images/projects/portfolio.png",
+                "desc": "The web application you're browsing right now.",
                 "link": {
-                    "url": "https://juraganbeku.tokopandai.id/",
-                    "label": "JuraganBeku"
+                    "url": "https://github.com/special-snowflake/fauzan.porto",
+                    "label": "Portfolio"
                 },
                 "tag": [
-                    "express.js",
-                    "redis",
-                    "e-commerce",
-                    "backend",
-                    "scheduler"
+                    "next.js",
+                    "tailwind",
+                    "frontend",
+                    "open source"
                 ]
             },
             {
                 "id": 4,
-                "projectName": "ZWallet",
-                "imagePath": "/assets/images/projects/zwallet.webp",
-                "desc": "A web app for sending and topping up money, built with Next.js. I independently developed the entire frontend within a week.",
+                "imagePath": "/assets/images/projects/money-tracker.webp",
+                "projectName": "Money Tracker",
+                "desc": "A personal project built with Next.js and TypeScript, powered by DeepSeek AI. It helps users track financial transactions — data can be entered manually, with AI assistance for parsing and categorization.",
                 "link": {
-                    "url": "https://zwallet-nextgen.vercel.app/",
-                    "label": "ZWallet Dashboard"
+                    "url": "https://money-tracker-piwpaw.vercel.app",
+                    "label": "Money Tracker"
                 },
                 "tag": [
                     "next.js",
-                    "react",
-                    "payments",
-                    "frontend"
+                    "typescript",
+                    "ai",
+                    "deepseek"
+                ]
+            },
+            {
+                "id": 5,
+                "imagePath": "/assets/images/projects/chatbot-ai.webp",
+                "projectName": "Company Chatbot AI",
+                "desc": "A local, document-grounded question-answering API for product catalogs, FAQs, and company information.",
+                "link": {
+                    "url": "https://github.com/special-snowflake/chatbot-ai-company",
+                    "label": "Company Chatbot AI"
+                },
+                "tag": [
+                    "node js",
+                    "llm",
+                    "ai",
+                    "chatbot"
                 ]
             }
         ]
