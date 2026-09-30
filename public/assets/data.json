@@ -56,7 +56,7 @@
         "extendedBio": "Full-stack developer passionate about creating modern, responsive web applications. Experienced with React, Next.js, Node.js, and building scalable solutions.",
         "stats": [
             {
-                "value": "6+",
+                "value": "7+",
                 "label": "Projects"
             },
             {
@@ -185,6 +185,23 @@
                     "llm",
                     "ai",
                     "chatbot"
+                ]
+            },
+            {
+                "id": 6,
+                "imagePath": "/assets/images/projects/chatbot-ai-python.webp",
+                "projectName": "Company Chatbot AI (Python)",
+                "desc": "A Python/FastAPI port of Company Chatbot AI — a local, document-grounded catalog assistant served with a browser chat UI. A deterministic answering strategy lifts accuracy from 51.9% to 96.3% across a 54-case eval set while cutting p50 latency to 22 ms with zero model calls.",
+                "link": {
+                    "url": "https://github.com/special-snowflake/chatbot-ai-company-python",
+                    "label": "Chatbot AI (Python)"
+                },
+                "tag": [
+                    "python",
+                    "fastapi",
+                    "llm",
+                    "rag",
+                    "embeddings"
                 ]
             }
         ]
