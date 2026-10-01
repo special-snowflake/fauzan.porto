@@ -4,7 +4,7 @@ import ProjectCard from '@/components/ProjectCard';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageShell from '@/components/PageShell';
-import { mapper } from '@/helpers/mapper';
+import { mapper, projectsInDisplayOrder } from '@/helpers/mapper';
 
 const ProjectsPage = ({ projects }) => {
   return (
@@ -66,14 +66,12 @@ const ProjectsPage = ({ projects }) => {
 
 export async function getStaticProps() {
   const projectData = mapper('projects');
-  const projects = {
-    ...projectData,
-    list: [...projectData.list].sort(
-      (firstProject, secondProject) => secondProject.id - firstProject.id
-    )
+  return {
+    props: {
+      // Same ordering helper the home page's featured rows use.
+      projects: { ...projectData, list: projectsInDisplayOrder() }
+    }
   };
-
-  return { props: { projects } };
 }
 
 export default ProjectsPage;

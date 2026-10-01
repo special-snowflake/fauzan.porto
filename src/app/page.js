@@ -5,16 +5,17 @@ import Footer from '@/components/Footer';
 import ProjectCard from '@/components/ProjectCard';
 import IridescentBackdrop from '@/components/IridescentBackdrop';
 import ScrollBadge from '@/components/ScrollBadge';
-import { mapper } from '@/helpers/mapper';
+import { mapper, projectsInDisplayOrder } from '@/helpers/mapper';
 
 const data = mapper('dashboard');
 const projects = mapper('projects');
 
 const FEATURED_COUNT = 3;
 
-const Home = () => {
-  const featured = projects.list.slice(0, FEATURED_COUNT);
+// Share the /projects ordering: data read bottom-to-top, so the newest work leads.
+const featured = projectsInDisplayOrder().slice(0, FEATURED_COUNT);
 
+const Home = () => {
   return (
     <>
       <Header />
