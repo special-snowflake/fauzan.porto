@@ -1,10 +1,11 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProjectCard from '@/components/ProjectCard';
 import IridescentBackdrop from '@/components/IridescentBackdrop';
 import ScrollBadge from '@/components/ScrollBadge';
+import HeroHeadline from '@/components/HeroHeadline';
+import TiltImage from '@/components/TiltImage';
 import { mapper, projectsInDisplayOrder } from '@/helpers/mapper';
 
 const data = mapper('dashboard');
@@ -26,9 +27,7 @@ const Home = () => {
           <IridescentBackdrop />
 
           <div className="container-page" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-            <h1 className="display-headline" style={{ color: 'var(--color-paper)' }}>
-              {data.name}
-            </h1>
+            <HeroHeadline name={data.name} />
           </div>
 
           <ScrollBadge />
@@ -61,16 +60,7 @@ const Home = () => {
               gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))'
             }}
           >
-            <div style={{ position: 'relative', aspectRatio: '4 / 5', overflow: 'hidden', background: 'var(--surface-ash-mist)' }}>
-              <Image
-                src={data.imageLeft}
-                fill
-                sizes="(max-width: 768px) 100vw, 520px"
-                alt={data.name}
-                className="project-row__img"
-                priority
-              />
-            </div>
+            <TiltImage src={data.imageLeft} alt={data.name} priority />
 
             <div>
               <h2 className="heading-accent">{data.headline}</h2>
