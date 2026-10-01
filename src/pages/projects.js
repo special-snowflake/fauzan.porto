@@ -1,100 +1,66 @@
 import React from 'react';
+import Link from 'next/link';
 import ProjectCard from '@/components/ProjectCard';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PageShell from '@/components/PageShell';
 import { mapper } from '@/helpers/mapper';
-import Layout from './layout';
-import Link from 'next/link';
-import '../app/globals.css';
 
 const ProjectsPage = ({ projects }) => {
   return (
-    <Layout>
+    <PageShell title="Projects">
       <Header />
-      <main className="min-h-screen pt-20 pb-12">
-        <div className="bg-grid" />
-        <div className="bg-glow" />
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          {/* Hero */}
-          <div className="text-center mb-16 animate-slide-up">
-            <div className="inline-flex items-center gap-2 hero-eyebrow mb-6">
-              <span className="hero-eyebrow__dot" />
-              {projects.eyebrow}
-            </div>
+      <main>
+        {/* ── SECTION HEADER ── */}
+        <section className="surface-paper container-page" style={{ paddingTop: 'calc(66px + var(--spacing-68))' }}>
+          <p className="eyebrow" style={{ color: 'var(--color-felt-gray)' }}>
+            {projects.eyebrow}
+          </p>
 
-            <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 tracking-tight text-white">
-              {projects.heading.split(' ').map((word, i) =>
-                word ===
-                projects.heading.split(' ')[
-                  projects.heading.split(' ').length - 1
-                ] ? (
-                  <span key={i} className="gradient-text">
-                    {word}
-                  </span>
-                ) : (
-                  <span key={i}>{word} </span>
-                )
-              )}
-            </h1>
+          <h1 className="heading-whisper" style={{ marginTop: 'var(--spacing-28)' }}>
+            {projects.heading}
+          </h1>
 
-            <p className="hero-desc max-w-xl mx-auto">
-              {`// ${projects.desc}`}
-            </p>
+          <p className="body-muted" style={{ marginTop: 'var(--spacing-28)', maxWidth: '52ch' }}>
+            {projects.desc}
+          </p>
+
+          <div style={{ marginTop: 'var(--spacing-48)' }}>
+            <span className="caption">
+              {projects.list.length} {projects.projectCountText}
+            </span>
           </div>
+        </section>
 
-          {/* Project count */}
-          <div className="project-counter mb-8">
-            {projects.list.length} {projects.projectCountText}
-          </div>
-
-          {/* Cards */}
-          <div className="space-y-4">
+        {/* ── PROJECT LIST — one full-width row per project ── */}
+        <section className="surface-paper container-page" style={{ paddingBlock: 'var(--spacing-64)' }}>
+          <div style={{ display: 'grid', gap: 'var(--spacing-64)' }}>
             {projects.list.map((project, index) => (
-              <div
-                key={project.id}
-                className="animate-slide-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <ProjectCard project={project} index={index} />
-              </div>
+              <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </div>
+        </section>
 
-          {/* CTA */}
-          <div
-            className="mt-20 animate-slide-up cta-section"
-            style={{ animationDelay: '0.4s' }}
-          >
-            <div className="cta-grid-bg" />
-            <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 text-white tracking-tight">
-              {projects.cta.heading}
-            </h2>
-            <p className="cta-desc mb-7">{`// ${projects.cta.description}`}</p>
-            <Link href={projects.cta.buttonHref} className="cta-btn">
-              <span>{projects.cta.buttonLabel}</span>
-              <span>Get in Touch</span>
-              <svg
-                width="16"
-                height="16"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-              {/* </a> */}
+        {/* ── CLOSING STATEMENT ── */}
+        <section className="surface-paper container-page" style={{ paddingBottom: 'var(--spacing-68)' }}>
+          <hr className="rule" />
+          <h2 className="heading-anchor" style={{ marginTop: 'var(--section-gap)', maxWidth: '18ch' }}>
+            {projects.cta.heading}
+          </h2>
+          <p className="body-muted" style={{ marginTop: 'var(--spacing-28)', maxWidth: '52ch' }}>
+            {projects.cta.description}
+          </p>
+          <div style={{ marginTop: 'var(--spacing-40)' }}>
+            <Link href={projects.cta.buttonHref} className="pill-ghost">
+              {projects.cta.buttonLabel}
             </Link>
           </div>
-        </div>
+        </section>
       </main>
+
       <Footer />
-    </Layout>
+    </PageShell>
   );
 };
 

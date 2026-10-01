@@ -1,77 +1,75 @@
 'use client';
+
 import PropTypes from 'prop-types';
 import Image from 'next/image';
 
+/**
+ * Project / list row — paired image and title, no card chrome.
+ * Transparent background, 0px radius, no shadow, full-bleed image inside the
+ * 1078px container, title below in Roobert 16px weight 400.
+ */
 const ProjectCard = ({ project, index = 0 }) => {
-  const isReversed = index % 2 !== 0;
-  const cardNum = String(index + 1).padStart(2, '0');
+  const rowNum = String(index + 1).padStart(2, '0');
 
   return (
-    <div className="project-card">
-      <div className="card-accent" />
-
-      <div className={`card-inner ${isReversed ? 'card-inner--reversed' : ''}`}>
-        {/* Image */}
-        <div className="card-img">
+    <article className="project-row">
+      <a
+        href={project.link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="link-plain"
+        aria-label={project.projectName}
+      >
+        <div className="project-row__media">
           <Image
             src={project.imagePath}
             fill
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 768px) 100vw, 1078px"
             alt={project.projectName}
-            className="card-img__photo"
-            onError={(e) => {
-              e.target.src = '/assets/images/not-found.webp';
+            className="project-row__img"
+            onError={(event) => {
+              event.target.src = '/assets/images/not-found.webp';
             }}
           />
-          <div className="card-img__overlay" />
-          <span className="card-index">{cardNum}</span>
         </div>
 
-        {/* Content */}
-        <div className="card-content">
-          <h3 className="card-title">{project.projectName}</h3>
+        <div className="project-row__head">
+          <h3 className="project-row__title">{project.projectName}</h3>
+          <span className="project-row__index">{rowNum}</span>
+        </div>
 
-          <p className="card-desc">{project.desc}</p>
+        <p className="project-row__desc">{project.desc}</p>
 
-          <div className="card-tags">
+        {Array.isArray(project.tag) && project.tag.length > 0 && (
+          <ul className="tag-list" style={{ listStyle: 'none', padding: 0 }}>
             {project.tag.map((tag) => (
-              <span key={tag} className="tag">
+              <li key={tag} className="tag">
                 {tag}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
+        )}
 
-          <a
-            href={project.link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="card-cta"
-          >
-            <span>{project.link.label}</span>
-            <svg
-              width="14"
-              height="14"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
+        <span className="pill-ghost" style={{ marginTop: 'var(--spacing-28)' }}>
+          {project.link.label}
+        </span>
+      </a>
+    </article>
   );
 };
 
 ProjectCard.propTypes = {
-  project: PropTypes.any,
-  index: PropTypes.number,
+  project: PropTypes.shape({
+    projectName: PropTypes.string,
+    imagePath: PropTypes.string,
+    desc: PropTypes.string,
+    tag: PropTypes.arrayOf(PropTypes.string),
+    link: PropTypes.shape({
+      url: PropTypes.string,
+      label: PropTypes.string
+    })
+  }).isRequired,
+  index: PropTypes.number
 };
 
 export default ProjectCard;

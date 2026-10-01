@@ -1,99 +1,165 @@
 import Image from 'next/image';
-import React from 'react';
-import Header from '@/components/Header';
-import Layout from './layout';
-import { mapper } from '@/helpers/mapper';
 import Link from 'next/link';
-import InteractiveGrid from '@/components/InteractiveGrid';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ProjectCard from '@/components/ProjectCard';
+import IridescentBackdrop from '@/components/IridescentBackdrop';
+import ScrollBadge from '@/components/ScrollBadge';
+import { mapper } from '@/helpers/mapper';
 
 const data = mapper('dashboard');
+const projects = mapper('projects');
+
+const FEATURED_COUNT = 3;
 
 const Home = () => {
-  return (
-    <Layout>
-      <Header />
-      <main className="min-h-screen overflow-hidden pt-16">
-        <InteractiveGrid />
-        <div className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-7xl flex-col lg:flex-row">
-          {/* Left Section - Image & Pattern */}
-          <div className="order-2 flex w-full items-center justify-center px-5 py-12 sm:px-8 sm:py-16 lg:order-1 lg:w-1/2 lg:px-12 lg:py-20 xl:px-20">
-            <div className="relative w-full max-w-lg animate-slide-up">
-              {/* Image container */}
-              <div className="relative z-10 overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 p-2 shadow-2xl shadow-black/20">
-                <div className="absolute inset-2 z-10 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 mix-blend-screen"></div>
-                <Image
-                  src={data.imageLeft}
-                  height={350}
-                  width={350}
-                  alt="personal-photo"
-                  className="h-auto w-full rounded-2xl object-cover transition-smooth duration-300 hover:scale-105"
-                  priority
-                />
-              </div>
+  const featured = projects.list.slice(0, FEATURED_COUNT);
 
-              {/* Pattern overlay */}
-              <div
-                className="pointer-events-none absolute -inset-4 rounded-3xl opacity-10"
-                style={{
-                  backgroundImage: `url(${data.backgroundLeft})`,
-                  backgroundSize: '160px 160px'
-                }}
-              ></div>
-            </div>
+  return (
+    <>
+      <Header />
+
+      <main>
+        {/* ── HERO — one monumental phrase over the iridescent media ── */}
+        <section className="on-dark hero-viewport">
+          <IridescentBackdrop />
+
+          <div className="container-page" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+            <h1 className="display-headline" style={{ color: 'var(--color-paper)' }}>
+              {data.name}
+            </h1>
           </div>
 
-          {/* Right Section - Text Content */}
-          <div className="order-1 flex w-full items-center justify-center px-5 py-12 sm:px-8 sm:py-16 lg:order-2 lg:w-1/2 lg:px-12 lg:py-20 xl:px-20">
-            <div className="w-full max-w-xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              {/* Welcome badge */}
-              <div className="mb-7 inline-block">
-                <span className="badge">
-                  {data.welcomeBadge}
-                </span>
-              </div>
+          <ScrollBadge />
+        </section>
 
-              {/* Main heading */}
-              <h1 className="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-                {data.headline} <span className="gradient-text">{data.name}</span>
-              </h1>
+        {/* ── MANIFESTO — 78px whisper weight on paper ── */}
+        <section className="surface-paper container-page section-gap-lg">
+          <p className="eyebrow" style={{ color: 'var(--color-felt-gray)' }}>
+            {data.welcomeBadge}
+          </p>
 
-              {/* Description */}
-              <p className="mb-6 max-w-2xl text-lg leading-relaxed text-slate-200 sm:text-xl">
-                {data.desc}
-              </p>
+          <h2 className="heading-whisper" style={{ marginTop: 'var(--spacing-28)', maxWidth: '22ch' }}>
+            {data.extendedBio}
+          </h2>
 
-              {/* Secondary description */}
-              <p className="mb-9 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
+          <hr className="rule" style={{ marginBlock: 'var(--section-gap)' }} />
+
+          <p className="body-muted" style={{ maxWidth: '58ch' }}>
+            {data.desc}
+          </p>
+        </section>
+
+        {/* ── ADJACENT BANDS — portrait left, statement right ── */}
+        <section className="surface-paper container-page section-gap">
+          <div
+            style={{
+              display: 'grid',
+              gap: 'var(--section-gap)',
+              alignItems: 'center',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))'
+            }}
+          >
+            <div style={{ position: 'relative', aspectRatio: '4 / 5', overflow: 'hidden', background: 'var(--surface-ash-mist)' }}>
+              <Image
+                src={data.imageLeft}
+                fill
+                sizes="(max-width: 768px) 100vw, 520px"
+                alt={data.name}
+                className="project-row__img"
+                priority
+              />
+            </div>
+
+            <div>
+              <h2 className="heading-accent">{data.headline}</h2>
+
+              <p className="body-copy" style={{ marginTop: 'var(--spacing-28)', maxWidth: '48ch' }}>
                 {data.extendedBio}
               </p>
 
-              {/* CTA Buttons */}
-              <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
-                {data.cta.map((button, index) => (
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--element-gap)', marginTop: 'var(--spacing-40)' }}>
+                {data.cta.map((button) => (
                   <Link
-                    key={index}
+                    key={button.href}
                     href={button.href}
-                    className={button.variant === 'primary' ? 'btn-primary w-full text-center sm:w-auto' : 'btn-secondary w-full text-center sm:w-auto'}
+                    className={button.variant === 'primary' ? 'pill-ghost' : 'pill-ghost'}
                   >
                     {button.label}
                   </Link>
                 ))}
               </div>
-
-              {/* Quick stats */}
-              <div className="grid grid-cols-3 gap-3 border-t border-white/10 pt-7 sm:gap-6">
-                {data.stats.map((stat, index) => (
-                  <div key={index} className="text-left">
-                    <p className="text-2xl font-bold gradient-text sm:text-3xl">{stat.value}</p>
-                    <p className="text-xs leading-5 text-slate-300 sm:text-sm">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* ── INVERSE BAND — stats ── */}
+        <section className="surface-obsidian on-dark">
+          <div
+            className="container-page"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              gap: 'var(--section-gap)',
+              paddingBlock: 'var(--section-gap)'
+            }}
+          >
+            {data.stats.map((stat) => (
+              <div key={stat.label}>
+                <p className="heading-anchor" style={{ color: 'var(--color-paper)' }}>
+                  {stat.value}
+                </p>
+                <p className="caption" style={{ color: 'var(--color-ash-mist)', marginTop: 'var(--spacing-12)' }}>
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── SELECTED WORK — single-column list rows ── */}
+        <section className="surface-paper container-page section-gap-lg">
+          <p className="eyebrow" style={{ color: 'var(--color-felt-gray)' }}>
+            {projects.eyebrow}
+          </p>
+
+          <h2 className="heading-whisper" style={{ marginTop: 'var(--spacing-28)' }}>
+            {projects.heading}
+          </h2>
+
+          <div style={{ display: 'grid', gap: 'var(--spacing-64)', marginTop: 'var(--spacing-64)' }}>
+            {featured.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
+          </div>
+
+          <div style={{ marginTop: 'var(--spacing-64)' }}>
+            <Link href="/projects" className="pill-ghost">
+              {projects.projectCountText}
+              {` (${projects.list.length})`}
+            </Link>
+          </div>
+        </section>
+
+        {/* ── CLOSING STATEMENT ── */}
+        <section className="surface-paper container-page section-gap-lg">
+          <hr className="rule" />
+          <h2 className="heading-anchor" style={{ marginTop: 'var(--section-gap)', maxWidth: '18ch' }}>
+            {projects.cta.heading}
+          </h2>
+          <p className="body-muted" style={{ marginTop: 'var(--spacing-28)', maxWidth: '52ch' }}>
+            {projects.cta.description}
+          </p>
+          <div style={{ marginTop: 'var(--spacing-40)' }}>
+            <Link href={projects.cta.buttonHref} className="pill-ghost">
+              {projects.cta.buttonLabel}
+            </Link>
+          </div>
+        </section>
       </main>
-    </Layout>
+
+      <Footer />
+    </>
   );
 };
 
